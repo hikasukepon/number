@@ -95,6 +95,11 @@ $number = (int)$_GET['number'];
 				echo "<dt>素数か</dt><dd>".$number5."</dd>";
 				echo "<dt>".$number."を半径とした時の円の面積</dt><dd>".$number6."</dd>";
 				echo "</dl>";
+				?>
+				<p>
+					<a href="index.php"><button class="btn btn-success">＜もどる</button></a>
+				</p>
+				<?php
 			}
 			?>
 		</div>
