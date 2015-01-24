@@ -59,20 +59,23 @@
 				}
 			}
 			if($is_sosu || $is_not_sosu){
-				echo ($is_sosu) ? '素数です。' : '素数ではありません。';
+				$number5 = ($is_sosu) ? '素数です。' : '素数ではありません。';
 			}else{
-				echo '判定できませんでした。';
+				$number5 = '判定できませんでした。';
 			}
 			
-				$number6 = $number*$number*3.14;
-				echo '<dl class="dl-horizontal">';
-				echo "<dt>入力した数値</dt><dd>".$number."</dd>";
-				echo "<dt>前の数</dt><dd>".$number1."</dd>";
-				echo "<dt>次の数</dt><dd>".$number2."</dd>";
-				echo "<dt>2倍にした数</dt><dd>".$number3."</dd>";
-				echo "<dt>2でわった数</dt><dd>".$number4."</dd>";
-				echo "<dt>".$number."を半径とした時の円の面積</dt><dd>".$number6."</dd>";
-				echo "</dl>";
+			$number6 = $number*$number*3.14;
+			
+			echo '<dl class="dl-horizontal">';
+			echo "<dt>入力した数値</dt><dd>".$number."</dd>";
+			echo "<dt>前の数</dt><dd>".$number1."</dd>";
+			echo "<dt>次の数</dt><dd>".$number2."</dd>";
+			echo "<dt>2倍にした数</dt><dd>".$number3."</dd>";
+			echo "<dt>2でわった数</dt><dd>".$number4."</dd>";
+			echo "<dt>素数かどうか</dt><dd>".$number5."</dd>";
+			echo "<dt>".$number."を半径とした時の円の面積</dt><dd>".$number6."</dd>";
+			echo "</dl>";
+
 			}
 			?>
 		</div>
