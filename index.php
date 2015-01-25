@@ -114,9 +114,9 @@
 				}
 
 				echo implode(' x ', $view);
-				echo " = ".$ii;
 			}
 			$number8 = pow($number,2);
+			$number9 = sqrt($number);
 
 			echo '<dl class="dl-horizontal">';
 			echo "<dt>入力した数値</dt><dd>".$number."</dd>";
@@ -130,6 +130,7 @@
 			echo "<dt>約数の一覧</dt><dd>";
 			yakusuu($number);
 			echo "</dd>";
+			echo "<dt>√".$number."</dt><dd>".$number9."</dd>";
 			echo "<dt>素因数分解すると？</dt><dd>";
 			soinsuu($number);
 			echo "</dd>";
