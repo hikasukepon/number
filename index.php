@@ -9,6 +9,9 @@
 	<?php $number = (!empty($_GET['number']) && is_numeric($_GET['number']) ) ? (int)$_GET['number'] : '数'; ?>
 	<title>(<?php echo $number; ?>)の詳細</title>
 	<style>
+	::selection{background-color:#000;color:#FFF;}
+	::-moz-selection{background-color:#000;color:#FFF;}
+
 	.form-control{ display:inline; width:100%; }
 	.dl-horizontal dt, .dl-horizontal dd{ text-overflow: initial; white-space: initial; }
 	</style>
@@ -73,21 +76,47 @@
 			$six = $number*7;
 			$seven = $number*8;
 			$nine = $number*9;
+			$eite = $number*10;
+			$ten = $number*11;
 
-			$number7 = $one.",".$two.",".$sree.",".$for.",".$five.",".$six.",".$seven.",".$nine;
+			$number7 = $one.",".$two.",".$sree.",".$for.",".$five.",".$six.",".$seven.",".$nine.",".$eite.",".$ten;
 			
 			$number6 = $number*$number*3.14;
 			
-			function yakusuu(){
-				if($number !== 1){
-					echo "1,";
+			//約数を求める
+			function yakusuu($iii){
+				for($num = 1; $num < $iii; $num++){
+					if($iii % $num == 0){
+						echo $num.", ";
+					}
+				}
+				echo $iii;
+			}
+
+			function soinsuu($ii){
+				$i = 2;
+
+				do {
+				    $remainder = $ii % $i;
+
+				    if ($remainder === 0) {
+			        $answer[$i]++;
+			        $ii /= $i;
+			        $i = 2;
+			    } else {
+			   	     $i++;
+			   	}
+
+				} while ($ii !== 1);
+
+				foreach ($answer as $key => $val) {
+				    $view[] = sprintf('%d<sup>%d</sup>', $key, $val);
 				}
 
-				echo $number;
+				echo implode(' x ', $view);
+				echo " = ".$ii;
 			}
-			function soinsuu(){
-
-			}
+			$number8 = pow($number,2);
 
 			echo '<dl class="dl-horizontal">';
 			echo "<dt>入力した数値</dt><dd>".$number."</dd>";
@@ -95,13 +124,14 @@
 			echo "<dt>次の数</dt><dd>".$number2."</dd>";
 			echo "<dt>2倍にした数</dt><dd>".$number3."</dd>";
 			echo "<dt>2でわった数</dt><dd>".$number4."</dd>";
+			echo "<dt>".$number."の2乗(".$number."<sup>2</sup>)</dt><dd>".$number8."</dd>";
 			echo "<dt>素数かどうか</dt><dd>".$number5."</dd>";
 			echo "<dt>倍数(10個)</dt><dd>".$number7."</dd>";
-			echo "<dt>約数</dt><dd>";
-			yakusuu();
+			echo "<dt>約数の一覧</dt><dd>";
+			yakusuu($number);
 			echo "</dd>";
-			echo "<dt>素因数分解</dt><dd>";
-			soinsuu();
+			echo "<dt>素因数分解すると？</dt><dd>";
+			soinsuu($number);
 			echo "</dd>";
 			echo "<dt>".$number."を半径とした時の円の面積</dt><dd>".$number6."</dd>";
 			echo "</dl>";
